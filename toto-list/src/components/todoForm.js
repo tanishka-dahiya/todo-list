@@ -24,12 +24,15 @@ function Todo() {
 
     const completeTask = index => {
         const newTasks = [...tasks];
+        
         newTasks[index].completed = true;
         setTasks(newTasks);
     };
 
     const removeTask = index => {
+        
         const newTasks = [...tasks];
+        newTasks[index].completed = true;
         newTasks.splice(index, 1);
         setTasks(newTasks);
     };
@@ -38,15 +41,22 @@ function Todo() {
         <div className="todo-container">
                 <div className="header">Pending tasks ({tasksRemaining})</div>
                 <div className="tasks">
-                    {tasks.map((task, index) => (
-                        <Task
+
+{
+    tasks.map((task, index) => {
+      return  <Task
                         task={task}
                         index={index}
                         completeTask={completeTask}
                         removeTask={removeTask}
                         key={index}
                         />
-                    ))}
+      })
+}
+
+
+
+                   
                 </div>
                 <div className="create-task" >
                     <CreateTask addTask={addTask} />

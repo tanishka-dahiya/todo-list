@@ -9,7 +9,7 @@ function CreateTask({ addTask }) {
     const [value, setValue] = useState("");
     const [isOpenDropdown, setOpen] = useState(false);
     const [expireyTime,setExpirey]=useState("None") ;
-    const action =["None","5 sec","10 sec","1 min","10 min"];
+    const action =["None","30 sec","1 min","10 min","30 min"];
     const handleSubmit = e => {
         e.preventDefault();
         if (!value) return;
