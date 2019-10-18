@@ -92,7 +92,7 @@ class Todo extends Component {
    
     return (
         <div className="todo-container">
-                {/* <div className="header">Pending tasks ({tasksRemaining})</div> */}
+                 <div className="header">Create Task</div> 
                 <div className="tasks">
 
 {
