@@ -6,7 +6,7 @@ import CreateTask from './CreateTask';
 import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
 import EditTask from './EditTask';
 import LineChart from '../components/LineChart';
-import PieChart from '../components/Graph';
+
 import './todo.css';
 
 
@@ -24,17 +24,17 @@ class Todo extends Component {
    
 
 
-    addTask = (title,expireTime,completed,expired) => {
-        
+    addTask = (title,expireTime) => {
+     
        const tasks= this.props.IsTasks;
        var tempDate = new Date();
   
  
        const obj={ "title":title ,"expireTime":expireTime,completed:false,expired:false,created_date:tempDate}
        const newTasks = [...tasks, obj];
-       console.log("gmw",newTasks)
        
-        console.log("my new array",newTasks)
+       
+       
         this.props.addTodo(newTasks);
      
     };
@@ -56,6 +56,10 @@ class Todo extends Component {
         newTasks[index].title=title;
         
         this.props.addTodo(newTasks);
+        this.setState({
+          isEdit:false,
+         
+        });
 
 
 
@@ -92,14 +96,16 @@ class Todo extends Component {
         
       this.props.addTodo(newTasks);
     };
+   
    render(){
    
    
     const tasks= this.props.IsTasks;
    
-   console.log("completed",this.state.Ongoingdata)
+    console.log("my new array",tasks)
     return ( <div>
-        <div className="todo-container">
+      
+       { this.state.isEdit===false &&<div className="todo-container">
                  <div className="header">Create Task</div> 
                 <div className="tasks">
 
@@ -126,13 +132,17 @@ class Todo extends Component {
                     <CreateTask addTask={this.addTask} />
 
                 </div>
-                {this.state.isEdit===true&&<div>"EDIT Your TODO:
-                    <EditTask data={this.state.task}
-                    handleEdit={this.handleEdit}
-                    index={this.state.index}/>
+               
                 </div>}
                 
-                </div>
+                {this.state.isEdit===true&&<div  className="todo-container">
+                <div className="header">EDIT Task:</div> 
+                <div className="tasks"><EditTask data={this.state.task}
+                    handleEdit={this.handleEdit}
+                    index={this.state.index}/></div>
+                    
+                    </div>}
+                
                 <LineChart/>
                </div>
                

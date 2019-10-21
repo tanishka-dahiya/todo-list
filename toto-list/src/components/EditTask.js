@@ -43,7 +43,7 @@ class EditTask extends Component {
         />
         
        
-  
+  <br></br>{'    '}
   <br></br>
    <Button color="success">Edit</Button>      </form>);
   }

@@ -13,13 +13,24 @@ class LineChart extends Component {
   constructor(props) 
   {
     super(props);
-    this.state = {timer:{},Ongoingdata:[0],deleteddata:[0],expiredData:[0],Completeddata:[0],isloading:true,isDo:true,timeStamp:[new Date()]
+    this.state = {timer:{},Ongoingdata:[],deleteddata:[],expiredData:[],Completeddata:[],isloading:true,isDo:true,timeStamp:[]
       };
   }
   componentDidMount() 
 
-  { 
-   
+  { const Tasks= this.props.IsTasks;
+    const IsCompleted= this.props.IsCompleted;
+    const IsExpired= this.props.IsExpired;
+    const IsDeleted= this.props.IsDeleted;
+    this.setState({
+      Ongoingdata:[Tasks.length],
+      deleteddata:[IsDeleted.length],
+      expiredData:[IsExpired.length],
+      Completeddata:[IsCompleted.length],
+      timeStamp:[new Date()]
+      
+
+    })
      this.getLineGraphData()
     }
    
@@ -33,8 +44,8 @@ class LineChart extends Component {
       let ss=this.state.timeStamp;
       const final=[...current,lucky.length]
       var currnetTimeStamp=new Date()
-      var time = currnetTimeStamp.getFullYear()+'-'+(currnetTimeStamp.getMonth()+1)+'-'+currnetTimeStamp.getDate()+"  "+ currnetTimeStamp.getHours() + ":" + currnetTimeStamp.getMinutes() + ":" + currnetTimeStamp.getSeconds();
-      let sss=[...ss,time]
+     
+      let sss=[...ss,currnetTimeStamp]
 
       if(final.length>=5){
         final.shift();
@@ -102,10 +113,7 @@ this.setState({
  
   render(){
     console.log("on",this.state.Ongoingdata,"dele",this.state.deleteddata,"expire",this.state.expiredData,"com",this.state.Completeddata)
-    if(this.state.Ongoingdata.length===8){
-      clearInterval(this.state.timer);
-      
-    }
+   
     if(this.state.isDo){
       if(this.state.Ongoingdata.length>=0){
         this.setState({
@@ -126,17 +134,17 @@ this.setState({
           fill: false,
           lineTension: 0.1,
           backgroundColor: 'rgba(75,192,192,0.4)',
-          borderColor: 'rgba(75,192,192,1)',
+          borderColor: 'rgba(75,192,192,0.4)',
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(75,192,192,1)',
-          pointBackgroundColor: '#fff',
+          pointBorderColor: 'rgba(75,192,192,0.4)',
+          pointBackgroundColor: 'rgba(75,192,192,0.4)',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBackgroundColor: 'rgba(75,192,192,0.4)',
+          pointHoverBorderColor: 'rgba(75,192,192,0.4)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
@@ -152,12 +160,12 @@ this.setState({
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
+            pointBorderColor: 'red',
+            pointBackgroundColor: 'red',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBackgroundColor: 'red',
+            pointHoverBorderColor: 'red',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
@@ -173,12 +181,12 @@ this.setState({
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
+            pointBorderColor: 'orange',
+            pointBackgroundColor: 'orange',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBackgroundColor: 'orange',
+            pointHoverBorderColor: 'orange',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
@@ -194,12 +202,12 @@ this.setState({
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
+            pointBorderColor: 'green',
+            pointBackgroundColor: 'green',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBackgroundColor: 'green',
+            pointHoverBorderColor: 'green',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,

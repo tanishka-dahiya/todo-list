@@ -51,7 +51,7 @@ if(temp<15){
           
          
         default:
-              
+           
         
     }   
    
@@ -67,43 +67,62 @@ else{
   seconds = (seconds < 10) ? "0" + seconds : seconds;
 
   console.log( hours + ":" + minutes + ":" + seconds + "." + milliseconds)
-  switch(this.props.task.expireTime) 
-  {case "None":
-  this.setState({
-      IsNone:true
-       });
+ 
+    if(this.props.task.expireTime==="None"){
+        this.setState({
+            IsNone:true
+             });
 
-break;
+  }else{
+    if(seconds<=0 ||minutes<=0){
+        this.setState({
+            Seconds:0,minutes:0
+        });}
+        else{
+            switch(this.props.task.expireTime) 
+    {case "None":
+    this.setState({
+        IsNone:true
+         });
+  
+  break;
+  
+        case "30 sec":
+            this.setState({
+                Seconds:30-seconds,minutes:0
+            });
+          
+          break;
+        case "1 min":
+            this.setState({
+                Seconds: 60-seconds,minutes:0
+            });
+          break;
+        case "10 min":
+            this.setState({
+                Seconds: 60-seconds ,minutes:9-minutes
+            });
+          
+          break;
+        case "30 min":
+            this.setState({
+                Seconds: 60-seconds,minutes:29-minutes
+            });
+          
+          break;
+          
+         
+          default:
+                  
+              
+        
+    }   
 
-      case "30 sec":
-          this.setState({
-              Seconds:30-seconds,minutes:0
-          });
-        
-        break;
-      case "1 min":
-          this.setState({
-              Seconds: 60-seconds,minutes:0
-          });
-        break;
-      case "10 min":
-          this.setState({
-              Seconds: 60-seconds ,minutes:9-minutes
-          });
-        
-        break;
-      case "30 min":
-          this.setState({
-              Seconds: 60-seconds,minutes:29-minutes
-          });
-        
-        break;
-        
-       
-      default:
-            
-      
-  }   
+        }
+    
+
+  }
+ 
   
 
 }
@@ -169,42 +188,42 @@ break;
             <div>{this.state.IsNone===true && <div
                 className="task"
                 style={{background:"red", textDecoration: this.props.task.completed || this.state.Seconds===0 ? "line-through" : "" }}
-                > <button style={{  background: "green" }} >
+                > <button >
                     No time Limit</button>
                 {this.props.task.title}{'   '} 
                
-                                <button style={{ background: "red" }} onClick={() => this.props.removeTask(this.props.index)}>x</button>
+                                <button  onClick={() => this.props.removeTask(this.props.index)}>x</button>
                 <button onClick={() => this.props.completeTask(this.props.index)}>Complete</button>
                 <button onClick={() => this.props.editTask(this.props.index)}>Edit</button>
             </div>}
            {this.state.minutes<1 && <div
                 className="task"
                 style={{background:"red", textDecoration: this.props.task.completed || this.state.Seconds===0 ? "line-through" : "" }}
-                > <button style={{  background: "green" }} >
+                > <button  >
                     Time left: {this.state.minutes} : {this.state.Seconds}  Seconds</button>
                 {this.props.task.title}{'   '} 
                
-                                <button style={{ background: "red" }} onClick={() => this.props.removeTask(this.props.index)}>x</button>
+                                <button onClick={() => this.props.removeTask(this.props.index)}>x</button>
                 <button onClick={() => this.props.completeTask(this.props.index)}>Complete</button>
                 <button onClick={() => this.props.editTask(this.props.index)}>Edit</button>
             </div>}
             {this.state.minutes>=1 &&this.state.minutes<15 &&<div
             className="task"
             style={{  background:"orange",textDecoration: this.props.task.completed || this.state.Seconds===0 ? "line-through" : "" }}
-            > <button style={{ background: "green" }} >Time left: {this.state.minutes} : {this.state.Seconds}  Seconds</button>
+            > <button  >Time left: {this.state.minutes} : {this.state.Seconds}  Seconds</button>
             {this.props.task.title}{'   '} 
            
-                            <button style={{ background: "red" }} onClick={() => this.props.removeTask(this.props.index)}>x</button>
+                            <button  onClick={() => this.props.removeTask(this.props.index)}>x</button>
             <button onClick={() => this.props.completeTask(this.props.index)}>Complete</button>
             <button onClick={() => this.props.editTask(this.props.index)}>Edit</button>
         </div>}
 {this.state.minutes>15 &&this.state.minutes<31 &&    <div
                 className="task"
                 style={{ background:"green",textDecoration: this.props.task.completed || this.state.Seconds===0 ? "line-through" : "" }}
-                > <button style={{ background: "green" }} >Time left: {this.state.minutes} : {this.state.Seconds}  Seconds</button>
+                > <button  >Time left: {this.state.minutes} : {this.state.Seconds}  Seconds</button>
                 {this.props.task.title}{'   '} 
                
-                                <button style={{ background: "red" }} onClick={() => this.props.removeTask(this.props.index)}>x</button>
+                                <button  onClick={() => this.props.removeTask(this.props.index)}>x</button>
                 <button onClick={() => this.props.completeTask(this.props.index)}>Complete</button>
                 <button onClick={() => this.props.editTask(this.props.index)}>Edit</button>
             </div>}
