@@ -1,4 +1,5 @@
 import React ,{Component} from 'react';
+
 import './todo.css';
 
 class Task extends Component {
@@ -7,17 +8,20 @@ class Task extends Component {
     {
       super(props);
       this.state = {Seconds:0,minutes:100,
-        timer:{},IsNone:false};
-    }
+        timer:{},IsNone:false,
+     currentdate:new Date()
+    }}
 
     componentDidMount() 
-  {
-
+  { 
+const temp=this.state.currentdate-this.props.task.created_date;
+console.log("difernce",temp  )
+if(temp<15){
     switch(this.props.task.expireTime) 
     {case "None":
     this.setState({
         IsNone:true
-    });
+         });
   
   break;
   
@@ -51,6 +55,60 @@ class Task extends Component {
         
     }   
    
+}
+else{
+    var milliseconds = parseInt((temp % 1000) / 100),
+    seconds = Math.floor((temp / 1000) % 60),
+    minutes = Math.floor((temp / (1000 * 60)) % 60),
+    hours = Math.floor((temp / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  console.log( hours + ":" + minutes + ":" + seconds + "." + milliseconds)
+  switch(this.props.task.expireTime) 
+  {case "None":
+  this.setState({
+      IsNone:true
+       });
+
+break;
+
+      case "30 sec":
+          this.setState({
+              Seconds:30-seconds,minutes:0
+          });
+        
+        break;
+      case "1 min":
+          this.setState({
+              Seconds: 60-seconds,minutes:0
+          });
+        break;
+      case "10 min":
+          this.setState({
+              Seconds: 60-seconds ,minutes:9-minutes
+          });
+        
+        break;
+      case "30 min":
+          this.setState({
+              Seconds: 60-seconds,minutes:29-minutes
+          });
+        
+        break;
+        
+       
+      default:
+            
+      
+  }   
+  
+
+}
+
+    
 
    const  countDown=()=>
         {
@@ -74,7 +132,9 @@ class Task extends Component {
             
             
         }
+        
         if(this.state.Seconds!=="undefined"){
+            
             let timers=setInterval(countDown, 1000);
             this.setState({
                 timer:timers
@@ -87,12 +147,12 @@ class Task extends Component {
       
       
     }
-  
+
     render() 
     
     
     {
-         if (this.state.Seconds === 0 && this.state.minutes===0) 
+         if (this.state.Seconds <= 0 && this.state.minutes<=0) 
         {   console.log("expired called",this.props.index)
         this.props.expireTask(this.props.index)
             clearInterval(this.state.timer);

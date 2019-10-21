@@ -4,7 +4,9 @@ import { compose } from 'redux';
 import Task from './Task';
 import CreateTask from './CreateTask';
 import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
-import EditTask from './EditTask'
+import EditTask from './EditTask';
+import LineChart from '../components/LineChart';
+import PieChart from '../components/Graph';
 import './todo.css';
 
 
@@ -13,19 +15,22 @@ class Todo extends Component {
     constructor(props) 
     {
       super(props);
-      this.state = {isEdit:false,task:{},index:100
+      this.state = {timer:{},isEdit:false,task:{},index:100,Ongoingdata:[0],deleteddata:[0],expiredData:[0],Completeddata:[0]
+
         };
     }
-
     
-
+   
+   
 
 
     addTask = (title,expireTime,completed,expired) => {
         
        const tasks= this.props.IsTasks;
-       console.log("dfgh",tasks)
-       const obj={ "title":title ,"expireTime":expireTime,completed:false,expired:false}
+       var tempDate = new Date();
+  
+ 
+       const obj={ "title":title ,"expireTime":expireTime,completed:false,expired:false,created_date:tempDate}
        const newTasks = [...tasks, obj];
        console.log("gmw",newTasks)
        
@@ -88,9 +93,12 @@ class Todo extends Component {
       this.props.addTodo(newTasks);
     };
    render(){
+   
+   
     const tasks= this.props.IsTasks;
    
-    return (
+   console.log("completed",this.state.Ongoingdata)
+    return ( <div>
         <div className="todo-container">
                  <div className="header">Create Task</div> 
                 <div className="tasks">
@@ -123,7 +131,10 @@ class Todo extends Component {
                     handleEdit={this.handleEdit}
                     index={this.state.index}/>
                 </div>}
+                
                 </div>
+                <LineChart/>
+               </div>
                
             
     );

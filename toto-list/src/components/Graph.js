@@ -2,6 +2,8 @@ import React ,{Component} from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import {Line} from 'react-chartjs-2';
+
 import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
 
 
@@ -76,8 +78,12 @@ class PieChart extends Component {
         ]
       }]
     };
-      return( 
+  
+      return(
         <Doughnut data={data}height={100} />
+        
+       
+        
       
     );
   }

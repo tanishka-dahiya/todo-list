@@ -29,13 +29,11 @@ class Navbar extends Component {
         <Router>
           <ul>
         <li><Link to="/Create-Todo">Create-Todo</Link></li>
-        <li><Link to="/Ongoing-Todo">Ongoing-Todo</Link></li>
-        <li><Link to="/Expired-Todo">Expired-Todo</Link></li>
-        <li><Link to="/Completed-Todo">Completed-Todo</Link></li>
         <li><Link to="/Pie-Chart">Pie-Chart</Link></li>
       </ul>
       <Route path="/Create-Todo" component={Todo} />
       <Route path="/Pie-Chart" component={PieChart} />
+      
       </Router>);
   }
 

@@ -8,10 +8,10 @@ const POST_TODO_EXPIRED = `${PREFIX}//POST_TODO_EXPIRED`;
 const POST_TODO_DELETED= `${PREFIX}//POST_TODO_DELETED`;
 
 const initState = {
-    tasks:[{title:"Eating",expireTime:"None",completed:false,expired:false},{title:"Sleeping",expireTime:"None",completed:false,expired:false},{title:"Watching TV",expireTime:"None",completed:true,expired:false},{title:"Cleaning",expireTime:"None",completed:false,expired:true}],
+    tasks:[],
     completed:[],
     expired:[],
-    deleted:[{title:"Makup",expireTime:"None",completed:false,expired:false},{title:"Take a bath",expireTime:"None",completed:false,expired:false}]
+    deleted:[]
 
 };
 

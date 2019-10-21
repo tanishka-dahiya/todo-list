@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './components/todoForm'
 import './App.css';
 
 
@@ -12,9 +13,9 @@ function App() {
     <div className="App">
       <Navbar/>
       
-   
     </div>
   );
 }
 
 export default App;
+;
