@@ -35,7 +35,7 @@ class Task extends Component {
              });
     }
     else{console.log("expire",this.props.task.expireTime)
-        if(temp<15)
+        if(temp<25)
                 {
                   switch(this.props.task.expireTime) 
                   {

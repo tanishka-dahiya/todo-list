@@ -1,4 +1,5 @@
 import React ,{Component} from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import { Button } from 'reactstrap';
 import './todo.css';
@@ -9,7 +10,7 @@ class EditTask extends Component {
     constructor(props) 
     {
       super(props);
-      this.state = {value:this.props.data.title,isOpenDropdown:false,
+      this.state = {value:this.props.data.title,isOpenDropdown:false,expireyTime:this.props.data.expireTime
       };
     }
 
@@ -18,7 +19,7 @@ class EditTask extends Component {
      handleSubmit = e => {
         e.preventDefault();
         
-        this.props.handleEdit(this.state.value,this.props.index);
+        this.props.handleEdit(this.state.value,this.props.index,this.state.expireyTime);
        
     }
 
@@ -27,11 +28,29 @@ class EditTask extends Component {
             value: value
           });
     }
-    han
+    
+    
+     toggleFunction=()=>{
+       console.log("gg")
+      this.setState({
+        isOpenDropdown:!this.state.isOpenDropdown
+    });
+      
+      
+    }
+     changeValue=e=> {
+      this.setState({
+        expireyTime:e.currentTarget.textContent
+    });
+      
+     
+       
+    }
+
  
   render(){
     
-
+    
       return(<form onSubmit={this.handleSubmit}>
         <input
             type="text"
@@ -44,7 +63,20 @@ class EditTask extends Component {
         
        
   <br></br>{'    '}
-  <br></br>
+  <br></br><br></br>
+            <Dropdown isOpen={this.state.isOpenDropdown} toggle={this.toggleFunction}>
+        <DropdownToggle caret>
+          Expirey Time ({this.state.expireyTime})
+        </DropdownToggle>
+        <DropdownMenu>
+                    {["None","30 sec","1 min","10 min","30 min"].map(e => {
+                        return <DropdownItem id={e} key={e} onClick={this.changeValue}>{e}</DropdownItem>
+                    })}
+                </DropdownMenu>
+      </Dropdown>
+       <br></br>
+      <br></br>
+     
    <Button color="success">Edit</Button>      </form>);
   }
 

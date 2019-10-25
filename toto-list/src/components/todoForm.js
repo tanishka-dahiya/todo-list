@@ -42,10 +42,12 @@ class Todo extends Component {
           
       
     };
-    handleEdit=(title,index)=>{
+    handleEdit=(title,index,expirey_Time)=>{
        
         const newTasks =this.props.IsTasks;
+        
         newTasks[index].title=title;
+        newTasks[index].expireTime=expirey_Time;
         this.props.addTodo(newTasks);
         this.setState({
           isEdit:false,
