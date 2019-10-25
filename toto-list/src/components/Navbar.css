@@ -1,0 +1,20 @@
+.flex-container {
+  display: flex;
+    background-color: #333;
+  }
+  
+  .flex-container > div {
+    background-color:#333;
+ 
+    padding: 10px;
+    font-size: 30px;
+    color: white;
+  }
+  .icon{
+    color: white;
+    font-size: 30px;
+    width: 60px ;
+    
+  }
+  
+    
