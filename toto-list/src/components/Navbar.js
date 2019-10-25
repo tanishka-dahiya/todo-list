@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
-import Todo from './todoForm';
-import PieChart from '../components/Graph'
+import FaList from 'react-icons/lib/fa/list';
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+
 
 
 
@@ -24,18 +24,30 @@ class Navbar extends Component {
  
   render(){
     
-    
       return(
-        <Router>
-          <ul>
-        <li><Link to="/Create-Todo">Create-Todo</Link></li>
-        <li><Link to="/Pie-Chart">Pie-Chart</Link></li>
-      </ul>
-      <Route path="/Create-Todo" component={Todo} />
-      <Route path="/Pie-Chart" component={PieChart} />
+        
+        <div class="flex-container">
+             <div class="icon"><FaList/></div>
+              <div >To-Do</div>
+              <div><Input placeholder="Search..." />
+       </div>
+              
+       
+      />
+                       
+                  
+              
+              
+         
+ 
+  
+ 
+</div>
       
-      </Router>);
-  }
+        
+      );
+     
 
   }
+}
   export default Navbar;

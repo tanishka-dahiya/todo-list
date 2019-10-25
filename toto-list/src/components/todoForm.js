@@ -20,21 +20,13 @@ class Todo extends Component {
         };
     }
     
-   
-   
-
 
     addTask = (title,expireTime) => {
      
        const tasks= this.props.IsTasks;
        var tempDate = new Date();
-  
- 
        const obj={ "title":title ,"expireTime":expireTime,completed:false,expired:false,created_date:tempDate}
        const newTasks = [...tasks, obj];
-       
-       
-       
         this.props.addTodo(newTasks);
      
     };
@@ -54,7 +46,6 @@ class Todo extends Component {
        
         const newTasks =this.props.IsTasks;
         newTasks[index].title=title;
-        
         this.props.addTodo(newTasks);
         this.setState({
           isEdit:false,
