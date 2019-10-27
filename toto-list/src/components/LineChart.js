@@ -39,7 +39,7 @@ class LineChart extends Component {
    // Ongoing
     var lucky= Tasks.filter(function(number) {
       return number.completed===false&&number.expired===false;})
-      console.log("drftgy88",this.state.lucky)
+     
       var current=this.state.Ongoingdata;
       let ss=this.state.timeStamp;
       const final=[...current,lucky.length]
@@ -112,7 +112,7 @@ this.setState({
   
  
   render(){
-    console.log("on",this.state.Ongoingdata,"dele",this.state.deleteddata,"expire",this.state.expiredData,"com",this.state.Completeddata)
+   
    
     if(this.state.isDo){
       if(this.state.Ongoingdata.length>=0){

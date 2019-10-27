@@ -2,7 +2,6 @@ import React ,{Component} from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import {Line} from 'react-chartjs-2';
 
 import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
 
@@ -10,50 +9,87 @@ import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpire
 
 
 class PieChart extends Component {
+  constructor(props) 
+  {
+    super(props);
+    this.state = {timer:{},Ongoingdata:[],deleteddata:[],expiredData:[],Completeddata:[]
+      };
+  }
+  componentDidMount() 
 
-  getOngoingData=()=>{
-    const Tasks= this.props.IsTasks;
+  { const Tasks= this.props.IsTasks;
+    const IsCompleted= this.props.IsCompleted;
+    const IsExpired= this.props.IsExpired;
+    const IsDeleted= this.props.IsDeleted;
+    this.setState({
+      Ongoingdata:[Tasks.length],
+      deleteddata:[IsDeleted.length],
+      expiredData:[IsExpired.length],
+      Completeddata:[IsCompleted.length],
+    
+      
+
+    })
+     this.getLineGraphData()
+    }
+   
+   countDown=()=>{
+     //ongoing
+       const Tasks= this.props.IsTasks;
     var lucky = Tasks.filter(function(number) {
       return number.completed===false&&number.expired===false;})
-      return lucky.length
-   
-    
-
-  }  
-  getCompletedData=()=>{
-    const Tasks= this.props.IsTasks;
-    var lucky = Tasks.filter(function(number) {
+      this.setState({
+        Ongoingdata:lucky.length
+      });
+    //completed
+      
+    var lucky1 = Tasks.filter(function(number) {
       return number.completed===true&&number.expired===false;})
-      return lucky.length
-   
-    
-
-  }  
-  getExpiredData=()=>{
-    const Tasks= this.props.IsTasks;
-    var lucky = Tasks.filter(function(number) {
-      return number.completed===false&&number.expired===true;})
-      return lucky.length
-   
-    
-
-  }  
-  getDeletedData=()=>{
-   const deletedTasks= this.props.IsDeleted;
-   return deletedTasks.length;
+      this.setState({
+        Completeddata:lucky1.length
+      });
+      //Expired
+      
  
+    var lucky2 = Tasks.filter(function(number) {
+      return number.completed===false&&number.expired===true;})
+    
+    
+    this.setState({
+      expiredData:lucky2.length
+    });
+
+   //Deletd
+     const deletedTasks= this.props.IsDeleted;
+     this.setState({
+      deleteddata:deletedTasks.length
+    });
+ 
+    
+    
+      }
+
+  getLineGraphData=()=>{
+    let timers=setInterval(this.countDown,  1000);
+    this.setState({
+      timer:timers
+    });
+
   }
+ 
     
   
  
+  
+ 
+ 
   render(){
-    const deleted=this.getDeletedData();
-    console.log("daeleted",deleted)
-    const ongoing=this.getOngoingData();
-    const completed=this.getCompletedData();
-
-    const expired=this.getExpiredData();
-
+    const deleted=this.state.deleteddata;
+   
+    const ongoing=this.state.Ongoingdata;
+    const completed=this.state.Completeddata;
+    const expired=this.state.expiredData;
+   
 
     const data = {
       labels: [
