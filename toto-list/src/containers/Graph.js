@@ -3,12 +3,12 @@ import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
+import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from '../components/tododucks';
 
 
 
 
-class PieChart extends Component {
+export class PieChart extends Component {
   constructor(props) 
   {
     super(props);

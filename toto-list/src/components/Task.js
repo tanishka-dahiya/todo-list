@@ -28,15 +28,16 @@ class Task extends Component {
     
     componentDidMount() 
     { 
-    const temp=this.state.currentdate-this.props.task.created_date;
+    //const temp=this.state.currentdate-this.props.task.created_date;
     if(this.props.task.expireTime==="None"){
         this.setState({
             IsNone:true
              });
     }
-    else{console.log("expire",this.props.task.expireTime)
-        if(temp<25)
-                {
+    else{
+    // else{
+    //     if(temp<25)
+    //             {
                   switch(this.props.task.expireTime) 
                   {
                     
@@ -71,49 +72,49 @@ class Task extends Component {
                     
                 }   
                
-            }
-            else{
+           // }
+           // else{
                 
-              let  seconds = Math.floor((temp / 1000) % 60);
-              let  minutes = Math.floor((temp / (1000 * 60)) % 60);
+            //   let  seconds = Math.floor((temp / 1000) % 60);
+            //   let  minutes = Math.floor((temp / (1000 * 60)) % 60);
                 
             
             
-              minutes = (minutes < 10) ? "0" + minutes : minutes;
-              seconds = (seconds < 10) ? "0" + seconds : seconds;
+            //   minutes = (minutes < 10) ? "0" + minutes : minutes;
+            //   seconds = (seconds < 10) ? "0" + seconds : seconds;
             
              
                
             
              
-                        switch(this.props.task.expireTime) 
-                {
-                    case "30 sec":
-                        this.setState({
-                            Seconds:30-seconds,minutes:0
-                        });
+            //             switch(this.props.task.expireTime) 
+            //     {
+            //         case "30 sec":
+            //             this.setState({
+            //                 Seconds:30-seconds,minutes:0
+            //             });
                       
-                      break;
-                    case "1 min":
-                        this.setState({
-                            Seconds: 60-seconds,minutes:0
-                        });
-                      break;
-                    case "10 min":
-                        this.setState({
-                            Seconds: 60-seconds ,minutes:9-minutes
-                        });
+            //           break;
+            //         case "1 min":
+            //             this.setState({
+            //                 Seconds: 60-seconds,minutes:0
+            //             });
+            //           break;
+            //         case "10 min":
+            //             this.setState({
+            //                 Seconds: 60-seconds ,minutes:9-minutes
+            //             });
                       
-                      break;
-                    case "30 min":
-                        this.setState({
-                            Seconds: 60-seconds,minutes:29-minutes
-                        });
+            //           break;
+            //         case "30 min":
+            //             this.setState({
+            //                 Seconds: 60-seconds,minutes:29-minutes
+            //             });
                       
-                      break;
+            //           break;
                       
                      
-                      default:
+            //           default:
                               
                           
                     
@@ -122,8 +123,8 @@ class Task extends Component {
                     
                 
             
-              }
-             }
+            //   }
+            //  }
             
             }
 

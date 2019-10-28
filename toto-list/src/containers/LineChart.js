@@ -2,9 +2,9 @@ import React ,{Component} from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import {Line} from 'react-chartjs-2';
-import './todo.css';
+import '../components/todo.css'
 
-import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
+import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from '../components/tododucks';
 
 
 

@@ -1,19 +1,20 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Task from './Task';
-import CreateTask from './CreateTask';
-import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
-import EditTask from './EditTask';
+import Task from '../components/Task';
+import CreateTask from '../components/CreateTask';
+import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from '../components/tododucks';
+import EditTask from '../components/EditTask';
 import { Jumbotron, Container } from 'reactstrap';
-import LineChart from '../components/LineChart';
-import PieChart from '../components/Graph'; 
+import LineChart from './LineChart';
+import PieChart from './Graph'; 
 
 
-import './todo.css';
+import '../components/todo.css'
 
 
-class Todo extends Component {
+
+export class Todo extends Component {
 
     constructor(props) 
     {
@@ -98,7 +99,7 @@ class Todo extends Component {
    
     const tasks= this.props.IsTasks;
    
-    console.log("my new array",tasks)
+    
     return ( <div>
       
        { this.state.isEdit===false &&<div className="todo-container">
