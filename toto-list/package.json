@@ -3,11 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.5.1",
+    "babel-jest": "^24.9.0",
     "bootstrap": "^4.3.1",
     "canvas": "^2.6.0",
     "canvasjs": "^1.8.1",
     "chart.js": "^2.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint-config-jest-enzyme": "^7.1.1",
+    "eslint-plugin-jest": "^23.0.0",
+    "jest-fetch-mock": "^2.1.2",
+    "jest-localstorage-mock": "^2.4.0",
+    "node-sass": "^4.13.0",
     "react": "^16.10.2",
+    "react-autosuggest": "^9.4.3",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.10.2",
     "react-icons": "^2.2.7",
@@ -19,12 +29,16 @@
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
     "redux-saga": "^1.1.1",
+    "scss": "^0.2.4",
+    "suggestion-react-input-search": "^1.3.0",
     "victory": "^33.1.1"
   },
   "scripts": {
+    "test": "react-scripts test",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "react-scripts test --coverage",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -41,5 +55,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "enzyme-react-intl": "^2.0.6",
+    "enzyme-to-json": "^3.4.3",
+    "jest": "^24.9.0"
+  },
+  "jest": {
+   
+   
+    "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+    ]
+}
 }

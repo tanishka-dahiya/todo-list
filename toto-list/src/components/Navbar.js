@@ -1,46 +1,18 @@
 import React ,{Component} from 'react';
 import FaList from 'react-icons/lib/fa/list';
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
-
-
-
-
 
 import './Navbar.css';
 
 
 class Navbar extends Component {
 
-    // constructor(props) 
-    // {
-    //   super(props);
-    //   this.state = {value:this.props.data.title,isOpenDropdown:false,
-    //   };
-    // }
-
-    
-  
-   
- 
   render(){
     
       return(
-        
+        <div>
         <div class="flex-container">
              <div class="icon"><FaList/></div>
-              <div >To-Do</div>
-              <div><Input placeholder="Search..." />
-       </div>
-              
-       
-      />
-                       
-                  
-              
-              
-         
- 
-  
+              <div >To-Do</div> </div >
  
 </div>
       
@@ -50,4 +22,4 @@ class Navbar extends Component {
 
   }
 }
-  export default Navbar;
+ export default Navbar;

@@ -22,8 +22,7 @@ function CreateTask({ addTask }) {
     }
     const changeValue=e=> {
         setExpirey(e.currentTarget.textContent);
-        let id = e.currentTarget.getAttribute("id");
-        console.log(id);
+       
     }
 
     return (

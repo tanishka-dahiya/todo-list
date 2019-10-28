@@ -1,26 +1,30 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Task from './Task';
-import CreateTask from './CreateTask';
-import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from './tododucks';
-import EditTask from './EditTask';
-import LineChart from '../components/LineChart';
+import Task from '../components/Task';
+import CreateTask from '../components/CreateTask';
+import { creatTodoActions,getTasks ,getTCompletedTasks,getDeletedTasks,getExpiredTasks} from '../components/tododucks';
+import EditTask from '../components/EditTask';
+import { Jumbotron, Container } from 'reactstrap';
+import LineChart from './LineChart';
+import PieChart from './Graph'; 
 
-import './todo.css';
+
+import '../components/todo.css'
 
 
-class Todo extends Component {
+
+export class Todo extends Component {
 
     constructor(props) 
     {
       super(props);
-      this.state = {timer:{},isEdit:false,task:{},index:100,Ongoingdata:[0],deleteddata:[0],expiredData:[0],Completeddata:[0]
+      this.state = {timer:{},isEdit:false,task:{},index:100,Ongoingdata:[0],deleteddata:[0],expiredData:[0],Completeddata:[0],activeIndex:0,animating:false
 
         };
     }
     
-
+  
     addTask = (title,expireTime) => {
      
        const tasks= this.props.IsTasks;
@@ -95,7 +99,7 @@ class Todo extends Component {
    
     const tasks= this.props.IsTasks;
    
-    console.log("my new array",tasks)
+    
     return ( <div>
       
        { this.state.isEdit===false &&<div className="todo-container">
@@ -135,8 +139,31 @@ class Todo extends Component {
                     index={this.state.index}/></div>
                     
                     </div>}
+
+
+
+                    <div>
+                    <Jumbotron fluid>
+        <Container fluid>
+          <h1 className="display-3">Line Graph</h1>
+          <p className="lead">This is a graph which represents the count of tasks completed,expired,deleted,Ongoing in every 10 seconds.</p>
+          <LineChart/>
+        </Container>
+      </Jumbotron></div>
+
+
+
+
                 
-                <LineChart/>
+      <div>
+      <Jumbotron fluid>
+        <Container fluid>
+          <h1 className="display-3">Pie Chart</h1>
+          <p className="lead">This is a Pie chart which represents total count of completed,Ongoing,deleted and expired Tasks.</p>
+          <PieChart/>
+        </Container>
+      </Jumbotron></div>
+
                </div>
                
             

@@ -31,7 +31,7 @@ class EditTask extends Component {
     
     
      toggleFunction=()=>{
-       console.log("gg")
+       
       this.setState({
         isOpenDropdown:!this.state.isOpenDropdown
     });

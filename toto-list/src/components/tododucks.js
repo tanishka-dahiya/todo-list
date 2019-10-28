@@ -15,7 +15,7 @@ const initState = {
 
 };
 
-const createtodoReducer = (state = initState, action = {}) => {
+export const createtodoReducer = (state = initState, action = {}) => {
     const handlers = {
         [RESET_TODO]: () => ({ ...initState}),
         [POST_NEW_TODO]: () => ({ ...state, tasks: action.payload.task }),
