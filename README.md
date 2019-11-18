@@ -17,16 +17,16 @@ npm start
 ```
 ## Screenshots
 Create task Page
-![Todo Page](./todo-list/Images/Todo.png)
-![CreatedTodo](./todo-listr/Images/CreatedTodo.png)
+![Todo Page](./Images/Todo.png)
+![CreatedTodo](./Images/CreatedTodo.png)
 If a Task is completed or expired then a line through  the title of task is shown.
-![CompletedExpired](./todo-list/Images/CompletedExpired.png)
+![CompletedExpired](./Images/CompletedExpired.png)
 If you try to complete a expired task then alert is shown "this task is already expired".
-![DeletedExpired](./todo-list/Images/DeletedExpired.png)
+![DeletedExpired](./Images/DeletedExpired.png)
 Edit Page
-![EditPage](./todo-list/Images/EditPage.png)
+![EditPage](./Images/EditPage.png)
 Line chart showing total count of expired,deleted,completed,ongoing task in each sec.
-![LineGraph](./todo-list/Images/LineGraph.png)
+![LineGraph](./Images/LineGraph.png)
 Pie chart showing total count of expired,deleted,completed,ongoing task in each sec.
-![PieChart](./todo-list/Images/PieChart.png)
+![PieChart](./Images/PieChart.png)
 
