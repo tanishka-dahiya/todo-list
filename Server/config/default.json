@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://tanishka123:tanishka123@devblog-xdjrp.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysercertoken",
+  "githubClientId": "4e1a692540f101d891e2",
+  "githubSecret": "25696071724c199114bfcf89b2dfd790418205e1"
+}
