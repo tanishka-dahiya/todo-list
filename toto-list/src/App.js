@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from './containers/todoForm'
+import Todo from './MainComponents/loginPage'
 import './App.css';
 
 
@@ -8,13 +8,9 @@ import Navbar from './components/Navbar';
 
 
 function App() {
-  
+
   return (
-    <div className="App">
-      <Navbar/>
-      <Todo/>
-      
-    </div>
+    <Todo />
   );
 }
 
