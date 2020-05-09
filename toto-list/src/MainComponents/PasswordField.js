@@ -6,7 +6,7 @@ import './todo.css';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(2.5),
+            margin: theme.spacing(0),
             width: '30ch'
         },
     },
