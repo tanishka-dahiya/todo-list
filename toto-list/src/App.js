@@ -1,12 +1,5 @@
 import React from 'react';
-import Todo from './MainComponents/loginPage'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Register from './MainComponents/RegistrationPage';
+import Todo from './containers/todoForm'
 import './App.css';
 import Navbar from './components/Navbar';
 
@@ -14,20 +7,11 @@ import Navbar from './components/Navbar';
 function App() {
 
   return (
-    <Router >
-      <Switch>
+    <div className="App">
+      <Navbar />
+      <Todo />
 
-        <Route path="/Register">
-          <Register />
-        </Route>
-        <Route path="/">
-          <Todo />
-        </Route>
-
-      </Switch>
-
-    </Router>
-
+    </div>
   );
 }
 
