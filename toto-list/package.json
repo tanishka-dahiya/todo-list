@@ -62,10 +62,8 @@
     "jest": "^24.9.0"
   },
   "jest": {
-   
-   
     "snapshotSerializers": [
-        "enzyme-to-json/serializer"
+      "enzyme-to-json/serializer"
     ]
-}
+  }
 }
