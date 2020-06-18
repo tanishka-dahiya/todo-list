@@ -17,6 +17,6 @@ npm start
 ```
 ## Screenshots
 
-![Todo Page](./Images/video.jpg)
+![Todo Page](./Images/video.mp4)
 
 
