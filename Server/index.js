@@ -11,8 +11,11 @@ app.use(express.json({ extended: false }));
 
 //Define Routes
 app.use("/api/users", require("./api/users"));
+<<<<<<< HEAD
 app.use("/api/auth", require("./api/auth"));
 app.use("/api/tasks", require("./api/posts"));
+=======
+>>>>>>> parent of 5c998e9... authenticate User
 
 
 //serve static assets in production
