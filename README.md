@@ -16,10 +16,7 @@ I use reactjs,react-icons,redux and reactstrap in this project.
 npm start
 ```
 ## Screenshots
-<video width="320" height="200" controls preload> 
-    <source src=./Images/video.mp4"></source> 
-    <source src="./Images/video.mp4.webm"></source> 
-</video>
+![](video.mp4)
 
 
 
