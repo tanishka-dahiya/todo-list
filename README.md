@@ -16,8 +16,8 @@ I use reactjs,react-icons,redux and reactstrap in this project.
 npm start
 ```
 ## Screenshots
+<video src="./Images/video.mp4" width="320" height="200" controls preload></video>
 
-![Todo Page](./Images/video.mp4)
 
 
 
