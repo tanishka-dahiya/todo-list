@@ -9,15 +9,15 @@ cd toto-list
 npm i
 ```
 ## Usage
-I use reactjs,react-icons,redux and reactstrap in this project.
+This Project uses reactjs,react-icons,redux, reactstrap and Chartjs.
 ## Start
 
 ```bash
 npm start
 ```
-## Screenshots
+## Demo
 
-![Todo Page](./Images/video.mp4)
+![](demo.gif)
 
 
 
